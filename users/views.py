@@ -269,8 +269,6 @@ class EmailIsAuctionEndView(APIView):
       Util.send_email(data)
     return Response({'msg':'notified'}, status=status.HTTP_200_OK)
 
-    
-
 class EmailIsNewBidView(APIView):
   renderer_classes = [UserRenderer]
   def post(self, request, format=None):
@@ -333,8 +331,6 @@ class EmailIsOutBidView(APIView):
 
     return Response({'msg':'notified'}, status=status.HTTP_200_OK)
 
-
-# CACHE_TTL = getattr(settings ,'CACHE_TTL' , DEFAULT_TIMEOUT)
 
 class UserNotificationView(APIView):
   renderer_classes = [UserRenderer]

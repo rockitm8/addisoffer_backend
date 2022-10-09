@@ -204,9 +204,3 @@ if __name__ == "__main__":
             print("Invalid!")
 
         time.sleep(1)
-
-
-# import sys
-
-# sys.modules[__name__],sys.modules['validate_email_module'] = validate_email,sys.modules[__name__]
-# from validate_email_module import *
