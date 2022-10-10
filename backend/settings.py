@@ -13,12 +13,10 @@ SECRET_KEY = 'django-insecure-y@l9_2!9y8ipnqk+2cs1lph!+pj^sb5!tt$#*xe-gp9c+iz@8k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:8080',
-#     'http://localhost:8000',
-#     'http://frontendtest2013120.herokuapp.com',
-#     'https://44be-115-186-187-42.ap.ngrok.io'
-# ]
+CORS_ALLOWED_ORIGINS = [
+    'http://35.243.129.226:8000',
+    'http://localhost:8080'
+]
 
 # CORS_ALLOW_HEADERS = [
 #     "accept",
@@ -32,7 +30,7 @@ DEBUG = True
 #     "x-requested-with",
 # ]
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # CORS_ORIGIN_WHITELIST = [
 #     'http://cf17-115-186-187-42.ap.ngrok.io'
