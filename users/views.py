@@ -236,13 +236,13 @@ class UserSettingView(viewsets.ModelViewSet):
   def retrieve(self, request, pk=None):
     id = pk
     if id is not None:
-      user_setting = UserSetting.objects.get(pk=id)
+      user_setting = UserSetting.objects.get(user=id)
       serializer_class = UserSettingSerializer(user_setting)
       return Response(serializer_class.data)
   
   def partial_update(self, request, pk=None):
     id = pk
-    user_setting = UserSetting.objects.get(pk=id)
+    user_setting = UserSetting.objects.get(user=id)
     serializer_class = UserSettingSerializer(user_setting, data=request.data)
 
     if serializer_class.is_valid():
@@ -330,7 +330,6 @@ class EmailIsOutBidView(APIView):
         Util.send_email(data)
 
     return Response({'msg':'notified'}, status=status.HTTP_200_OK)
-
 
 class UserNotificationView(APIView):
   renderer_classes = [UserRenderer]
