@@ -14,8 +14,9 @@ SECRET_KEY = 'django-insecure-y@l9_2!9y8ipnqk+2cs1lph!+pj^sb5!tt$#*xe-gp9c+iz@8k
 DEBUG = True
 
 CORS_ALLOWED_ORIGINS = [
-    'http://35.243.129.226:8000',
-    'http://localhost:8080'
+    'http://35.231.121.122:8000',
+    'http://localhost:8080',
+    'http://frontendtest2013120.herokuapp.com'
 ]
 
 # CORS_ALLOW_HEADERS = [
