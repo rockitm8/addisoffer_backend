@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y@l9_2!9y8ipnqk+2cs1lph!+pj^sb5!tt$#*xe-gp9c+iz@8k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # CORS_ALLOWED_ORIGINS = [
 #     'http://localhost:8080',
@@ -32,7 +32,7 @@ DEBUG = False
 #     "x-requested-with",
 # ]
 
-ALLOWED_HOSTS = ['35.231.121.122']
+ALLOWED_HOSTS = ['*']
 
 # CORS_ORIGIN_WHITELIST = [
 #     'http://cf17-115-186-187-42.ap.ngrok.io'
