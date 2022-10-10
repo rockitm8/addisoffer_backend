@@ -88,7 +88,7 @@ class SendPasswordResetEmailSerializer(serializers.Serializer):
       user = User.objects.get(email = email)
       uid = urlsafe_base64_encode(force_bytes(user.id))
       token = PasswordResetTokenGenerator().make_token(user)
-      link = 'http://localhost:8080/en/reset-password/'+uid+'/'+token
+      link = 'http://frontendtest2013120.herokuapp.com/en/reset-password/'+uid+'/'+token
       # Send Email
       body = '<img style="width:100px;" class="img1" src="127.0.0.1:8000/images/Picture1.png" alt="" /><img style="width:200px;" class="img2" src="http://127.0.0.1:8000/images/Picture2.png" alt="" /><p>Need to reset your password?</p><p>Here is your secret link!</p><p>' + link + '</p><p>If you did not forget your password, you can ignore this email.</p><p>If you didn’t make this request, then you can ignore this email 🙂</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
       msg = EmailMessage(subject='Reset Your Password', body=body, from_email=os.environ.get('EMAIL_FROM'), to=[user.email])
