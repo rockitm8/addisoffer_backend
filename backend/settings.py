@@ -32,7 +32,7 @@ DEBUG = True
 #     "x-requested-with",
 # ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # CORS_ORIGIN_WHITELIST = [
 #     'http://cf17-115-186-187-42.ap.ngrok.io'
@@ -218,7 +218,6 @@ SIMPLE_JWT = {
 PASSWORD_RESET_TIMEOUT = 300
 
 INTERNAL_IPS = [
-    "127.0.0.1",
 ]
 
 TIME_INPUT_FORMATS = ['%H:%M:%S']
