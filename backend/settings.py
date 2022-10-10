@@ -15,8 +15,9 @@ DEBUG = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://35.231.121.122:8000',
-    'http://localhost:8080',
-    'http://frontendtest2013120.herokuapp.com'
+    'http://35.231.121.122:8080',
+    # 'http://localhost:8080',
+    # 'http://frontendtest2013120.herokuapp.com'
 ]
 
 # CORS_ALLOW_HEADERS = [
