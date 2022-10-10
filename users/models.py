@@ -18,11 +18,11 @@ class UserManager(BaseUserManager):
           otp = otp,
       )
       user.set_password(password)
-      user.is_admin = True
+      user.is_admin = False
       user.save(using=self._db)
       return user
 
-  def create_superuser(self, email, user_name, password=None, bids_allowed=0):
+  def create_superuser(self, email, user_name, password=None, bids_allowed=0, otp=None):
       """
       Creates and saves a superuser with the given email, name, tc and password.
       """
@@ -30,7 +30,9 @@ class UserManager(BaseUserManager):
           email,
           password=password,
           user_name=user_name,
+          otp=otp
       )
+      user.verified = True
       user.is_admin = True
       user.save(using=self._db)
       return user
