@@ -1,5 +1,5 @@
 from django.urls import path
-from users.views import EmailIsAuctionEndView, UserNotificationView, UsersRegisteredView, EmailIsNewBidView, EmailIsNewCommentView, EmailIsOutBidView, OTPVerificationView, SendPasswordResetEmailView, UploadImageView, UserBidsLeftView, UserChangePasswordView, UserLoginView, UserLogoutView, UserProfileView, UserRegistrationView, UserPasswordResetView, UserSettingView, UserUpdateView, UserUsernameView
+from users.views import CommentorImageView, EmailIsAuctionEndView, UserNotificationView, UsersRegisteredView, EmailIsNewBidView, EmailIsNewCommentView, EmailIsOutBidView, OTPVerificationView, SendPasswordResetEmailView, UploadImageView, UserBidsLeftView, UserChangePasswordView, UserLoginView, UserLogoutView, UserProfileView, UserRegistrationView, UserPasswordResetView, UserSettingView, UserUpdateView, UserUsernameView
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
@@ -21,7 +21,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('otp-verification/', OTPVerificationView.as_view(), name='otp-verification'),
     path('image/', UploadImageView.as_view(), name='image'),
-    path('image/<id>/', UploadImageView.as_view(), name='imagee'),
+    path('profile_pic/<id>/', CommentorImageView.as_view(), name='imagee'),
     path('bids_left/', UserBidsLeftView.as_view(), name='bids'),
     path('update/<id>/', UserUpdateView.as_view(), name='update'),
     path('settings/', include(router.urls)),
