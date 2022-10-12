@@ -1,7 +1,6 @@
 import json
 import math
 import random
-from tkinter import Image
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -158,11 +157,11 @@ class UserLogoutView(APIView):
 
 class CommentorImageView(generics.ListCreateAPIView):
   serializer_class = ImageSerializer
-  queryset = Image.objects.all()
+  queryset = UserProfilePicture.objects.all()
 
   def get(self, request, *args, **kwargs):
     user_id = request.GET.get("user_id")
-    image = Image.objects.get(user = user_id)
+    image = UserProfilePicture.objects.get(user = user_id)
     
     serializer = self.get_serializer(image, many=True)
     return Response(serializer.data['profile_pic'])
