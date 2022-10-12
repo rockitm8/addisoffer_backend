@@ -103,7 +103,7 @@ class CarMainImageViewSet(generics.ListCreateAPIView):
         car_id = request.GET.get("car_id")
         images = CarImage.objects.filter(car = car_id)
         
-        serializer = self.get_serializer(images)
+        serializer = self.get_serializer(images, many=True)
         return Response(serializer.data[0]['image'])
 
 class CarResultViewSet(viewsets.ViewSet):

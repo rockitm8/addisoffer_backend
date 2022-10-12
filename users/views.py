@@ -162,7 +162,7 @@ class CommentorImageView(generics.ListCreateAPIView):
     user_id = request.GET.get("user_id")
     image = UserProfilePicture.objects.get(user = user_id)
     
-    serializer = self.get_serializer(image, many=True)
+    serializer = self.get_serializer(image)
     return Response(serializer.data['profile_pic'])
 
 class UploadImageView(APIView):
