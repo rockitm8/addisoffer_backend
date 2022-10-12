@@ -78,13 +78,13 @@ class User(AbstractBaseUser):
 class UserSetting(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    notification_is_replied = models.BooleanField('Notification_is_replied', default=0)
-    notification_is_new_bid = models.BooleanField('Notification_is_new_bid', default=0)
-    notification_is_sound = models.BooleanField('notifications_is_sound', default=0)
-    email_is_auction_end = models.BooleanField('Email_is_auction_end', default=0)
-    email_is_new_bid = models.BooleanField('Email_is_new_bid', default=0)
-    email_is_new_comment = models.BooleanField('Email_is_new_comment', default=0)
-    email_is_out_bid = models.BooleanField('Email_is_out_bid', default=0)
+    notification_is_replied = models.BooleanField('Notification_is_replied', default=1)
+    notification_is_new_bid = models.BooleanField('Notification_is_new_bid', default=1)
+    notification_is_sound = models.BooleanField('notifications_is_sound', default=1)
+    email_is_auction_end = models.BooleanField('Email_is_auction_end', default=1)
+    email_is_new_bid = models.BooleanField('Email_is_new_bid', default=1)
+    email_is_new_comment = models.BooleanField('Email_is_new_comment', default=1)
+    email_is_out_bid = models.BooleanField('Email_is_out_bid', default=1)
 
     def __str__(self):
         return str(self.id)
