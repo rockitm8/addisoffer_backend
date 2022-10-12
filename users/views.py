@@ -157,7 +157,6 @@ class UserLogoutView(APIView):
 
 class CommentorImageView(generics.ListCreateAPIView):
   serializer_class = ImageSerializer
-  queryset = UserProfilePicture.objects.all()
 
   def get(self, request, *args, **kwargs):
     user_id = request.GET.get("user_id")
