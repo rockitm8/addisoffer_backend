@@ -196,7 +196,8 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         user = AllowedBid.objects.filter(user = user_id)
         car_id = request.data['car_id']
         car = AllowedBid.objects.filter(car = car_id)
-
+        print("/////////////////////////////////////////////////////////////////")
+        print(request)
         if not user:
             return Response(False, status=status.HTTP_200_OK)
         if not car:
@@ -216,7 +217,7 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         user = AllowedBid.objects.filter(user = user_id)
 
         print("/////////////////////////////////////////////////////////////////")
-        print(request)
+        print(user)
         # accessing car id
         car_id = request.data['car_id']
         car = AllowedBid.objects.filter(car = car_id)
