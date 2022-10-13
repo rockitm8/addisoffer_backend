@@ -193,10 +193,8 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         # user id from access token
         user_id=access_token_obj['user_id']
         # user from user_id
-        print("/////////////////////////////////////////////////////////////////")
-        print(request.data)
         user = AllowedBid.objects.filter(user = user_id)
-        car_id = request.data['car_id']
+        car_id = request.GET.get("car_id")
         car = AllowedBid.objects.filter(car = car_id)
         
         if not user:
