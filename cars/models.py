@@ -71,3 +71,10 @@ class PublishedComment(models.Model):
 
   def __str__(self):
     return str(self.id)
+
+class AllowedBid(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  car = models.ForeignKey(Car, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return str(self.id)

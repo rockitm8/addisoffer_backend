@@ -1,6 +1,6 @@
 from rest_framework import routers
 from django.urls import path, include
-from cars.views import CarImagesViewSet, CarMainImageViewSet, CarResultViewSet, CarStatusViewSet, CarTimeViewSet, CarViewSet, BidViewSet, CarsEndedView, PublishedCommentViewSet, UserCarsViewSet
+from cars.views import AllowedBidViewSet, CarImagesViewSet, CarMainImageViewSet, CarResultViewSet, CarStatusViewSet, CarTimeViewSet, CarViewSet, BidViewSet, CarsEndedView, PublishedCommentViewSet, UserCarsViewSet
 
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -12,6 +12,7 @@ urlpatterns = [
     path('/cars/', include(router.urls)),
     path('/cars-images/', CarImagesViewSet.as_view()),
     path('/bids/', BidViewSet.as_view()),
+    path('/allowed-bid/', AllowedBidViewSet.as_view()),
     path('/comments/', PublishedCommentViewSet.as_view()),
     path('/cars-status-end/', CarStatusViewSet.as_view()),
     path('/car-time/<int:pk>/', CarTimeViewSet.as_view()),

@@ -6,8 +6,8 @@ from logging import exception
 from urllib.parse import ParseResultBytes
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
-from cars.models import Car, Bid, CarImage, PublishedComment
-from cars.serializers import CarImageSerializer, CarSerializer, BidSerializer, PublishedCommentSerializer
+from cars.models import AllowedBid, Car, Bid, CarImage, PublishedComment
+from cars.serializers import AllowedBidSerializer, CarImageSerializer, CarSerializer, BidSerializer, PublishedCommentSerializer
 from rest_framework import status
 from rest_framework_simplejwt.tokens import AccessToken
 from users.models import User
@@ -180,6 +180,54 @@ class BidViewSet(generics.ListCreateAPIView):
             request.data['bidder'] = user_id
 
             return self.create(request, *args, **kwargs)
+
+
+class AllowedBidViewSet(generics.ListCreateAPIView):
+    serializer_class = AllowedBidSerializer
+    queryset= AllowedBid.objects.all()
+    
+    def get(self, request, *args, **kwargs):
+        # geting token from header
+        authHeader = request.headers['Authorization']
+        access_token_obj = AccessToken(authHeader)
+        # user id from access token
+        user_id=access_token_obj['user_id']
+
+
+        # user from user_id
+        user = AllowedBid.objects.filter(user = user_id)
+
+        print("/////////////////////////////////////////////////////////////////")
+        print(user)
+        # return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        # geting token from header
+        authHeader = request.headers['Authorization']
+        access_token_obj = AccessToken(authHeader)
+        # user id from access token
+        user_id=access_token_obj['user_id']
+
+
+        # user from user_id
+        user = AllowedBid.objects.filter(user = user_id)
+
+        print("/////////////////////////////////////////////////////////////////")
+        print(user)
+        # accessing car id
+        car_id = request.data['car_id']
+        car = AllowedBid.objects.filter(car = car_id)
+
+        # if car[0].seller.id == user_id:
+        #     return
+
+        # if user.bids_left > 0:
+        #     request.data['bid_on'] = bid_on
+        #     request.data['bidder'] = user_id
+
+        #     return self.create(request, *args, **kwargs)
+
+
 
 class PublishedCommentViewSet(generics.ListCreateAPIView):
     serializer_class = PublishedCommentSerializer

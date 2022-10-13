@@ -1,4 +1,4 @@
-from cars.models import Car, Bid, CarImage, PublishedComment
+from cars.models import AllowedBid, Car, Bid, CarImage, PublishedComment
 from rest_framework import serializers
 
 from users.models import User, UserNotification, UserSetting
@@ -32,6 +32,11 @@ class BidSerializer(serializers.ModelSerializer):
             carName = str(car[0].year) + " " + car[0].make + " " + car[0].model
             UserNotification.objects.create(user=user, notifier=validated_data['bidder'], detail='has placed a bid on ' + carName, notification_type='notification_is_new_bid')
         return bid
+
+class AllowedBidSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AllowedBid
+        fields = ['id', 'user', 'car']
 
 class PublishedCommentSerializer(serializers.ModelSerializer):
     class Meta:
