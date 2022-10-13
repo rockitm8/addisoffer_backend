@@ -198,13 +198,13 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         user = AllowedBid.objects.filter(user = user_id)
 
         if not user:
-            print("/////////////////////////////////////////////////////////////////")
-            print(user)
-            return self.list(False, *args, **kwargs)
+            print("//////////////////////////////////////////////////")
+            print("falseeeeeeeeeeeeeeeeeeee")
+            return self.list(False)
         else:
-            return self.list(True, *args, **kwargs)
-        
-        # return self.list(request, *args, **kwargs)
+            print("//////////////////////////////////////////////////")
+            print("trueeeeeeeeeeeeeeeeeeeeee")
+            return self.list(True)
 
     def post(self, request, *args, **kwargs):
         # geting token from header
