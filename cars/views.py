@@ -216,7 +216,7 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         user = AllowedBid.objects.filter(user = user_id)
 
         print("/////////////////////////////////////////////////////////////////")
-        print(user)
+        print(request)
         # accessing car id
         car_id = request.data['car_id']
         car = AllowedBid.objects.filter(car = car_id)
