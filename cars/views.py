@@ -200,7 +200,8 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         if not user:
             print("//////////////////////////////////////////////////")
             print("falseeeeeeeeeeeeeeeeeeee")
-            return self.list(False)
+            request.data = False
+            return self.list(request.data)
         else:
             print("//////////////////////////////////////////////////")
             print("trueeeeeeeeeeeeeeeeeeeeee")
