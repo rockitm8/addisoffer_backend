@@ -192,13 +192,17 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         access_token_obj = AccessToken(authHeader)
         # user id from access token
         user_id=access_token_obj['user_id']
-
-
         # user from user_id
         user = AllowedBid.objects.filter(user = user_id)
+        car_id = request.data['car_id']
+        car = AllowedBid.objects.filter(car = car_id)
 
+        if not user:
+            return Response(False, status=status.HTTP_200_OK)
+        if not car:
+            return Response(False, status=status.HTTP_200_OK)
 
-        return Response(False, status=status.HTTP_200_OK)
+        return Response(True, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         # geting token from header
