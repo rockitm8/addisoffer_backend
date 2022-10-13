@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cars.models import Car, Bid, CarImage, PublishedComment
+from cars.models import AllowedBid, Car, Bid, CarImage, PublishedComment
 
 # Register your models here.
 
@@ -18,6 +18,9 @@ class SettingCar(admin.ModelAdmin):
 
 class SettingCarImage(admin.ModelAdmin):
     list_display = ('id', 'car', 'image')
+
+class SettingAllowedBid(admin.ModelAdmin):
+    list_display = ('id', 'user', 'car')
 
 class SettingBid(admin.ModelAdmin):
     list_display = ('id', 'bidder', 'bid_on', 'bid_amount')
@@ -39,5 +42,6 @@ class SettingComment(admin.ModelAdmin):
 
 admin.site.register(Car, SettingCar)
 admin.site.register(CarImage, SettingCarImage)
+admin.site.register(AllowedBid, SettingAllowedBid)
 admin.site.register(Bid, SettingBid)
 admin.site.register(PublishedComment, SettingComment)
