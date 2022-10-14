@@ -277,9 +277,10 @@ class EmailIsAuctionEndView(APIView):
     setting = UserSetting.objects.get(user=user)
 
     if setting.email_is_auction_end:
-      body = 'Notify me when my auction ends'
+      
+      body = '<p>Your auction has ended</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
       data = {
-        'subject':'Your auction has ended',
+        'subject':'ADDIS OFFER, AUCTION ENDED',
         'body':body,
         'to_email':user.email
       }
@@ -296,9 +297,9 @@ class EmailIsNewBidView(APIView):
     setting = UserSetting.objects.get(user=user)
 
     if setting.email_is_new_bid:
-      body = 'Notify me when new bid'
+      body = '<p>There is a new bid on your car.</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
       data = {
-        'subject':'New bid on your car',
+        'subject':'ADDIS OFFER, NEW BID',
         'body':body,
         'to_email':user.email
       }
@@ -316,9 +317,9 @@ class EmailIsNewCommentView(APIView):
     setting = UserSetting.objects.get(user=user)
 
     if setting.email_is_new_comment:
-      body = 'Notify me when new Comment'
+      body = '<p>There is a new comment on your car.</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
       data = {
-        'subject':'New comment on your car',
+        'subject':'ADDIS OFFER, NEW COMMENT',
         'body':body,
         'to_email':user.email
       }
@@ -337,14 +338,13 @@ class EmailIsOutBidView(APIView):
       user = User.objects.get(id = user_id)
       setting = UserSetting.objects.get(user=user)
 
-      if setting.email_is_out_bid:
-        body = 'Notify me when new Comment'
-        data = {
-          'subject':'You have been out bid',
-          'body':body,
-          'to_email':user.email
-        }
-        Util.send_email(data)
+      body = '<p>You have been out bid on a car.</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
+      data = {
+        'subject':'ADDIS OFFER, OUT BID',
+        'body':body,
+        'to_email':user.email
+      }
+      Util.send_email(data)
 
     return Response({'msg':'notified'}, status=status.HTTP_200_OK)
 

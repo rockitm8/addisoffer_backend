@@ -11,27 +11,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y@l9_2!9y8ipnqk+2cs1lph!+pj^sb5!tt$#*xe-gp9c+iz@8k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CORS_ALLOWED_ORIGINS = [
-    'http://35.231.121.122:8000',
-    'http://35.231.121.122:8080',
-    'http://localhost:8080',
-    # 'http://frontendtest2013120.herokuapp.com'
+    'http://addisoffer.com/',
+    'http://admin.addisoffer.com/'
+    'https://addisoffer.com/',
+    'https://admin.addisoffer.com/'
 ]
-
-# CORS_ALLOW_HEADERS = [
-#     "accept",
-#     "accept-encoding",
-#     "authorization",
-#     "content-type",
-#     "dnt",
-#     "origin",
-#     "user-agent",
-#     "x-csrftoken",
-#     "x-requested-with",
-# ]
-
 ALLOWED_HOSTS = ['*']
 
 # CORS_ORIGIN_WHITELIST = [
