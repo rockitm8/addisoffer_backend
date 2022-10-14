@@ -42,6 +42,6 @@ class SettingComment(admin.ModelAdmin):
 
 admin.site.register(Car, SettingCar)
 admin.site.register(CarImage, SettingCarImage)
-# admin.site.register(AllowedBid, SettingAllowedBid)
+admin.site.register(AllowedBid, SettingAllowedBid)
 admin.site.register(Bid, SettingBid)
 admin.site.register(PublishedComment, SettingComment)
