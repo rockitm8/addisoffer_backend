@@ -172,7 +172,8 @@ class BidViewSet(generics.ListCreateAPIView):
 
         car = Car.objects.filter(id = bid_on)
         print('(////////////////////////////////////////////////////////////)')
-        print(car[0])
+        print(car[0].seller.id)
+        print(user_id)
         if car[0].seller.id == user_id:
             return
         
