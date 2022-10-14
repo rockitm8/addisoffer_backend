@@ -209,10 +209,10 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         # user id from access token
         user_id=access_token_obj['user_id']
         # user from user_id
-        user = AllowedBid.objects.filter(user = user_id)
+        user = User.objects.filter(user = user_id)
         # accessing car id
         car_id = request.data['bid_on']
-        car = AllowedBid.objects.filter(car = car_id)
+        car = Car.objects.filter(car = car_id)
 
         request.data['user'] = user[0]
         request.data['car'] = car[0]
