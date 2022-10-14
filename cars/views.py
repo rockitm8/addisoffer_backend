@@ -178,7 +178,8 @@ class BidViewSet(generics.ListCreateAPIView):
         request.data['bid_on'] = bid_on
         request.data['bidder'] = user_id
 
-        return self.create(request, *args, **kwargs)
+        # return self.create(request, *args, **kwargs)
+        return Response({'msg':'Bid posted'}, status=status.HTTP_200_OK)
 
 
 class AllowedBidViewSet(generics.ListCreateAPIView):
