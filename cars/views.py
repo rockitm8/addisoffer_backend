@@ -214,7 +214,7 @@ class AllowedBidViewSet(generics.ListCreateAPIView):
         car_id = request.data['bid_on']
         car = Car.objects.filter(car = car_id)
 
-        request.data['user'] = user[0]
+        request.data['id'] = user[0]
         request.data['car'] = car[0]
 
         return self.create(request, *args, **kwargs)
