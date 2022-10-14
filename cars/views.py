@@ -171,11 +171,11 @@ class BidViewSet(generics.ListCreateAPIView):
         bid_on = request.data['bid_on']
 
         car = Car.objects.filter(id = bid_on)
-        
+        print('(////////////////////////////////////////////////////////////)')
+        print(car[0])
         if car[0].seller.id == user_id:
             return
-        print('(////////////////////////////////////////////////////////////)')
-        print(car)
+        
         request.data['bid_on'] = bid_on
         request.data['bidder'] = user_id
 
