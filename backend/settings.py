@@ -14,10 +14,11 @@ SECRET_KEY = 'django-insecure-y@l9_2!9y8ipnqk+2cs1lph!+pj^sb5!tt$#*xe-gp9c+iz@8k
 DEBUG = False
 
 CORS_ALLOWED_ORIGINS = [
-    'http://addisoffer.com/',
-    'http://admin.addisoffer.com/'
-    'https://addisoffer.com/',
-    'https://admin.addisoffer.com/'
+    'http://addisoffer.com',
+    'http://admin.addisoffer.com'
+    'https://addisoffer.com',
+    'https://admin.addisoffer.com',
+    'http://localhost:8080'
 ]
 ALLOWED_HOSTS = ['*']
 
