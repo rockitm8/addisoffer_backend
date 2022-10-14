@@ -175,11 +175,10 @@ class BidViewSet(generics.ListCreateAPIView):
         if car[0].seller.id == user_id:
             return
 
-        if user.bids_left > 0:
-            request.data['bid_on'] = bid_on
-            request.data['bidder'] = user_id
+        request.data['bid_on'] = bid_on
+        request.data['bidder'] = user_id
 
-            return self.create(request, *args, **kwargs)
+        return self.create(request, *args, **kwargs)
 
 
 class AllowedBidViewSet(generics.ListCreateAPIView):
