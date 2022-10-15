@@ -22,6 +22,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 ALLOWED_HOSTS = ['*']
 
+ACCESS_CONTROL_ALLOW_ORIGIN = '*'
+
 # CORS_ORIGIN_WHITELIST = [
 #     'http://cf17-115-186-187-42.ap.ngrok.io'
 # ]
