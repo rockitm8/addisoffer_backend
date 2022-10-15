@@ -45,8 +45,7 @@ class UserRegistrationView(APIView):
   def post(self, request, format=None):
     otp = generateOTP()
     request.data['otp'] = otp
-    link = ''
-    body = otp + " " + link
+    body = '<p>Your otp is: ' + otp + '</p><p>Kind Regards,</p><p>The Addis Offer Team</p>'
     data = {
       'subject':'Registeration otp for Addis Offer',
       'body':body,
