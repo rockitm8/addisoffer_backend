@@ -34,6 +34,7 @@ class CarViewSet(viewsets.ViewSet):
             return Response(serializer_class.data)
 
     def create(self, request):
+        
         serializer_class = CarSerializer(data=request.data)
         request.data._mutable = True
         authHeader = request.headers['Authorization']
@@ -95,6 +96,8 @@ class CarImagesViewSet(generics.ListCreateAPIView):
         serializer = self.get_serializer(images, many=True)
         return Response(serializer.data)
 
+
+
 class CarMainImageViewSet(generics.ListCreateAPIView):
     serializer_class = CarImageSerializer
     queryset = CarImage.objects.all()
@@ -124,7 +127,8 @@ class CarsEndedView(APIView):
     serializer_class = CarSerializer(cars, many=True)
     cars_value = 0
     for car in serializer_class.data:
-        cars_value += car['high_bid']
+        if car['high_bid'] > car['reserve_bid']:
+            cars_value += car['high_bid']
     
     data = {
         'auctions_completed': len(serializer_class.data),
