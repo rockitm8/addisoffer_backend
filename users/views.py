@@ -21,6 +21,8 @@ from django.conf import settings
 from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 from django.core.cache import cache
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 
 def generateOTP() :
@@ -40,6 +42,7 @@ def get_tokens_for_user(user):
       'access': str(refresh.access_token),
   }
 
+@method_decorator(csrf_exempt, name='dispatch')
 class UserRegistrationView(APIView):
   renderer_classes = [UserRenderer]
   def post(self, request, format=None):
